@@ -91,7 +91,7 @@ const { state, saveCreds } = await useMultiFileAuthState('./src/sesi')
                 }
                 return message;
     },  
-        browser: ['BOTCAHX','Safari',''],
+        browser: ['Papah','Safari','5.0.0'],
         auth: state,
 	generateHighQualityLinkPreview: true
     })
