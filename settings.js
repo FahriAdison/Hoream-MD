@@ -2,11 +2,11 @@
 
 const fs = require('fs')
 const chalk = require('chalk')
-global.owner = ['6281395861695']
-global.ownernomer = "6281395861695"
-global.premium = ['6281395861695']
+global.owner = ['6282268003229']
+global.ownernomer = "6282268003229"
+global.premium = ['6282268003229']
 global.packname = 'Sticker By'
-global.author = 'BOTCAHX'
+global.author = 'Sad-Bot'
 global.jumlha = '999'
 global.jumhal = '100000000000000'
 global.jumlah = '1000000000'
@@ -22,7 +22,7 @@ global.mess = {
     private: 'Fitur Digunakan Hanya Untuk Private Chat!',
     bot: 'Fitur Khusus Pengguna Nomor Bot',
     wait: 'Loading...',
-    error: 'Error!',
+    error: 'Error Bang!',
     errapi: 'Error Mungkin Apikey Tidak Valid!',
     errmor: 'Error Kesalahan Sistem',
     endLimit: 'Limit Harian Anda Telah Habis, Limit Akan Direset Setiap Jam 12',
@@ -33,12 +33,12 @@ global.limitawal = {
 }
 global.thumb = fs.readFileSync('./media/image/tio.jpg')
 global.faall = fs.readFileSync('./media/image/fake.jpg')
-global.mygit = 'https://github.com/BOTCAHX'
-global.webmy = 'https://api.botcahx.biz.id'
-global.ghme = 'https://github.com/BOTCAHX'
-global.botname = 'BOTCAHX'
-global.omlen = '© TioXd'
-global.weem = 'BOTCAHX'
+global.mygit = 'https://github.com/FahriAdison'
+global.webmy = 'https://bit.ly/Papah-Chan'
+global.ghme = 'https://github.com/FahriAdison'
+global.botname = 'Sad-Bot'
+global.omlen = '© Fahri'
+global.weem = 'Papah-Chan'
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
 	fs.unwatchFile(file)
