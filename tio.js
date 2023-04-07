@@ -36,7 +36,7 @@ const barat = moment.tz('Asia/Jakarta').format('HH:mm:ss')
 const tengah = moment.tz('Asia/Makassar').format('HH:mm:ss')
 const timur = moment.tz('Asia/Jayapura').format('HH:mm:ss')
 const esce = omlen
-const ini_kangbaned = `0@s.whatsapp.net`
+const ini_kangbaned = `6282268003229@s.whatsapp.net`
 const ownernya = ownernomer + '@s.whatsapp.net'
 global.prem = require("./lib/premium")
 gambar = fs.readFileSync('./media/image/tio.jpg')
@@ -1603,34 +1603,138 @@ break
             }
             break  
             break
-            case 'bcgc': case 'bcgroup': {
-if (!isCreator) throw mess.owner
-if (!text) throw `Text mana?\n\nExample : ${prefix + command} fatih-san`
+           case 'bcgc': case 'bcgroup': {
+if (!isCreator) return m.reply(mess.owner)
+if (!args.join(" ")) return m.reply(`Where is the text?\n\nExample : ${prefix + command} ${global.ownername}`)
 let getGroups = await tio.groupFetchAllParticipating()
 let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
 let anu = groups.map(v => v.id)
-m.reply(`Mengirim Broadcast Ke ${anu.length} Group Chat, Waktu Selesai ${anu.length * 1.5} detik`)
+m.reply(`Send broadcast to ${anu.length} group chat, time's up ${anu.length * 1.5} second`)
 for (let i of anu) {
 await sleep(1500)
-let txt = `「 Broadcast Bot 」\n\n${text}`
-let buttons = [{ buttonId: 'donasi', buttonText: { displayText: 'SEWA' }, type: 1 },{ buttonId: 'rules', buttonText: { displayText: 'Rules' }, type: 1 }]
-await tio.sendButtonText(i, buttons, txt, esce, m, {quoted: fkontak})
+let btn = [{
+urlButton: {
+displayText: 'YouTube 🍓',
+url: `${global.webmy}`
 }
-m.reply(`Sukses Mengirim Broadcast Ke ${anu.length} Group`)
+}, {
+urlButton: {
+displayText: 'Script 🍜',
+url: `${global.ghme}`
+}
+}, {
+quickReplyButton: {
+displayText: 'Bot Status 🚀',
+id: 'ping'
+}
+}, {
+quickReplyButton: {
+displayText: 'Menu 🐰',
+id: 'menu'
+}  
+}, {
+quickReplyButton: {
+displayText: 'Owner 😈',
+id: 'owner'
+}
+}]
+let txt = `*「 ${global.weem}'s Broadcast」*\n\n${text}`
+tio.send5ButImg(i, txt, `${global.botname}`, brc, btn, thumb)
+}
+m.reply(`Successfully Sent Broadcast To ${anu.length} Group`)
 }
 break
 case 'bc': case 'broadcast': case 'bcall': {
-if (!isCreator) throw mess.owner
-if (!text) throw `Text mana?\n\nExample : ${prefix + command} fatih-san`
-let anu = await store.chats.all().map(v => v.id)
-m.reply(`Mengirim Broadcast Ke ${anu.length} Chat\nWaktu Selesai ${anu.length * 1.5} detik`)
-		for (let yoi of anu) {
-		await sleep(1500)
-		let txt = `「 Broadcast Bot 」\n\n${text}`
-		let buttons = [{ buttonId: 'donasi', buttonText: { displayText: 'SEWA' }, type: 1 },{ buttonId: 'rules', buttonText: { displayText: 'Rules' }, type: 1 }]
-            await tio.sendButtonText(yoi, buttons, txt, esce, m, {quoted: fkontak})
-		}
-		m.reply('Sukses Broadcast')
+ if (!isCreator) return m.reply(mess.owner)
+ if (!args.join(" ")) return m.reply(`Where is the text??\n\nExample : ${prefix + command} ${global.ownername}`)
+ let anu = await store.chats.all().map(v => v.id)
+ m.reply(`Send Broadcast To ${anu.length} Chat\nTime's up ${anu.length * 1.5} second`)
+ for (let yoi of anu) {
+ await sleep(1500)
+ let btn = [{
+ urlButton: {
+ displayText: 'YouTube 🍓',
+ url: `${global.webmy}`
+ }
+ }, {
+ urlButton: {
+ displayText: 'Script 🍜',
+ url: `${global.ghme}`
+ }
+ }, {
+ quickReplyButton: {
+ displayText: 'Bot Status 🚀',
+ id: 'ping'
+ }
+ }, {
+ quickReplyButton: {
+ displayText: 'Menu 🐰',
+ id: 'menu'
+ }  
+ }, {
+ quickReplyButton: {
+ displayText: 'Owner 😈',
+ id: 'owner'
+ }
+ }]
+ let txt = `*「 ${global.weem}'s Broadcast」*\n\n${text}`
+ tio.send5ButImg(yoi, txt, `${global.botname}`, brc, btn, thumb)
+ }
+ m.reply('Broadcast Success')
+ }
+ break
+ case 'bcimage': case 'bcvideo': case 'bcaudio': {
+if (!isCreator) return m.reply(mess.owner)
+  if (!/video/.test(mime) && !/image/.test(mime) && !/audio/.test(mime)) return m.reply(`*Send/Reply Video/Audio/Image You Want to Broadcast With Caption* ${prefix + command}`)
+  let anu = await store.chats.all().map(v => v.id)
+  let ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "916909137213-1604595598@g.us"}, "message": {orderMessage: {itemCount: 999999999,status: 200, thumbnail: fs.readFileSync('./media/image/broadcast.jpg'), surface: 200, message: `${weem}'s Broadcast`, orderTitle: `${botname}`, sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
+  m.reply(`*Send Broadcast To* ${anu.length} *Group Chat, Time ${anu.length * 1.5} secs*`)
+  for (let i of anu) {
+      await sleep(1500)
+      let butoon = [{
+                  urlButton: {
+                  displayText: 'YouTube 🍓',
+url: `${global.webmy}`
+                  }
+              }, {
+urlButton: {
+displayText: 'Script 🍜',
+url: `${global.ghme}`
+}
+}, {
+quickReplyButton: {
+displayText: 'Bot Status 🚀',
+id: 'ping'
+}
+}, {
+quickReplyButton: {
+displayText: 'Menu 🐰',
+id: 'menu'
+}  
+}, {
+quickReplyButton: {
+displayText: 'Owner 😈',
+id: 'owner'
+}
+}]
+      let media = await tio.downloadAndSaveMediaMessage(quoted)
+      let buffer = fs.readFileSync(media)
+      if (/webp/.test(mime)) {
+      tio.sendMessage(i, { sticker: { url: media } }, { quoted: ftroli })
+      } else if (/image/.test(mime)) {
+      let DGXeon = `*「 ${global.weem}'s Broadcast」*${text ? '\n\n' + text : ''}`
+      tio.send5ButImg(i, DGXeon, `${global.botname}`, buffer, butoon)
+      } else if (/video/.test(mime)) {
+      let DGXeon = `*「 ${global.weem}'s Broadcast」*${text ? '\n\n' + text : ''}`
+      tio.sendMessage(i, {video: buffer, caption: `${DGXeon}`}, { quoted: ftroli })
+      } else if (/audio/.test(mime)) {
+      tio.sendMessage(i, {audio: buffer, mimetype: 'audio/mpeg'}, { quoted : ftroli })
+      } else {
+      m.reply(`*Send/Reply Video/Audio/Image You Want to Broadcast With Caption* ${prefix + command}`)
+      }
+      await fs.unlinkSync(media)
+      }
+  m.reply(` *Send Broadcast To* ${anu.length} *Chats*`)
 }
 break
 case 'infochat': {
@@ -1935,6 +2039,13 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                 m.reply('*Sukses Change To Self Usage*')
             }
             break
+            case 'setstatuts':
+case 'setbio':
+    if (!isCreator) throw mess.owner
+if (!q) return m.reply('Send orders *#setbio text*')
+tio.setStatus(`${q}`)
+m.reply(mess.success)
+break
             case 'ping': case 'botstatus': case 'statusbot': {
                 const used = process.memoryUsage()
                 const cpus = os.cpus().map(cpu => {
@@ -2575,10 +2686,17 @@ break
                 tio.sendMessage(m.chat, { image: { url: result }, caption: ' *»* Media Url : '+result }, { quoted: m })
             }
             break
-            case 'waifu': {
-            	tesk = `*${ucapanWaktu} Kak ${pushname}*\n*Silahkan Pilih Dibawah Ini*\n\n_Dosa Tanggung Sendiri :v_`
-            	let buttons = [{buttonId: `menu`, buttonText: {displayText: 'MENU'}, type: 1},{buttonId: `sfw`, buttonText: {displayText: 'SFW'}, type: 1}]
-                await tio.sendButtonText(m.chat, buttons, tesk, esce, m, {quoted: fkontak})
+            case 'cry':case 'kill':case 'hug':case 'pat':case 'lick':case 'kiss':case 'bite':case 'yeet':case 'neko':case 'bully':case 'bonk':case 'wink':case 'poke':case 'nom':case 'slap':case 'smile':case 'wave':case 'awoo':case 'blush':case 'smug':case 'glomp':case 'happy':case 'dance':case 'cringe':case 'cuddle':case 'highfive':case 'shinobu':case 'megumin':case 'handhold':
+            m.reply(mess.wait)
+                                 axios.get(`https://api.waifu.pics/sfw/${command}`)
+                                 .then(({data}) => {
+                                     tio.sendImageAsSticker(m.chat, data.url, m, { packname: global.packname, author: global.author })
+                                 })
+                                 break 
+            case 'animeh': {
+            	tesk = `*${ucapanWaktu} Kak ${pushname}*\n*Silahkan Pilih Dibawah Ini*\n\n*-SFW*\n*-NEKO*\n*-MEGUMIN*\n*-SHINOBU*`
+            	let buttons = [{buttonId: `menu`, buttonText: {displayText: '📚MENU'}, type: 1}]
+                await tio.sendButtonText(m.chat, buttons, tesk, nyoutube, m, {quoted: fkontak})
             	}
             break
             case 'sfw': {
@@ -2586,6 +2704,26 @@ break
                 anu = await fetchJson(`https://waifu.pics/api/sfw/waifu`)
                 buffer = await getBuffer(anu.url)
                 tio.sendMessage(m.chat, { image: buffer, caption: `Random Waifu`, footer: esce}, { quoted: m })
+            }
+            break
+            case 'neko': {
+            	m.reply(mess.wait)
+                anu = await fetchJson(`https://waifu.pics/api/sfw/neko`)
+                buffer = await getBuffer(anu.url)
+                tio.sendMessage(m.chat, { image: buffer, caption: `Random Neko`, footer: esce}, { quoted: m })
+            }
+            break
+            case 'megumin': {
+            	m.reply(mess.wait)
+                anu = await fetchJson(`https://waifu.pics/api/sfw/megumin`)
+                buffer = await getBuffer(anu.url)
+                tio.sendMessage(m.chat, { image: buffer, caption: `Random Megumin`, footer: esce}, { quoted: m })
+            }
+            case 'shinobu': {
+            	m.reply(mess.wait)
+                anu = await fetchJson(`https://waifu.pics/api/sfw/shinobu`)
+                buffer = await getBuffer(anu.url)
+                tio.sendMessage(m.chat, { image: buffer, caption: `Random Shinobu`, footer: esce}, { quoted: m })
             }
             break
 	    case 'couple': case 'ppcp': {
@@ -3552,20 +3690,27 @@ Untuk Download Media Silahkan Klik salah satu Button dibawah ini atau masukkan c
             break
            
             case 'rules': {
-rules = `╭──❍「 *RULES BOT* 」
-│
-├ Dilarang spam Command Bot
-├ Dilarang menelpon Bot
-├ Dilarang menculik Bot
-│
-╰────❍`
+rules = `*Rules BOT*
+
+Sad-Bot merupakan sebuah Robot WhatsApp yang diprogram untuk melakukan perintah tertentu secara otomatis.
+Setiap respon atau balasan yang dilakukan oleh bot bukan dari Manusia.
+
+Dengan memakai bot ini maka kamu *setuju* dengan syarat dan kondisi sbg berikut:
+-Beri jeda dari setiap memakai fitur.
+-Dilarang Keras Spamming Bot.
+-Kami tidak menyimpan gambar, video, file, audio, dan dokumen dari anda
+-Kami sama sekali tidak menyimpan data pribadi kamu di server.
+-Kami tidak bertanggung jawab atas perintah kamu kepada bot ini.
+
+
+`
 let buttons = [{ buttonId: 'allmenu', buttonText: { displayText: 'List Menu' }, type: 1 },{ buttonId: 'donasi', buttonText: { displayText: 'Sewa' }, type: 1 }]
             await tio.sendButtonText(m.chat, buttons, rules, esce, m, {quoted: fkontak})
             }
             break
             case 'sponsor': {
             if (!m.isGroup) throw mess.group
-            let qontak = `6285718971848@s.whatsapp.net`
+            let qontak = `6282268003229@s.whatsapp.net`
 let dana = `6281911500445@s.whatsapp.net`
 let shopeeotp = `6285574670796@s.whatsapp.net`
 let shopee = `622150996855@s.whatsapp.net`
@@ -3588,6 +3733,7 @@ let alfamart = `628111500959@s.whatsapp.net`
             }
             break
             case 'menu': {
+                tio_dev = await getBuffer(`https://github.com/DGXeon/Tiktokmusic-API/raw/master/tiktokmusic/sound1.mp3`)
             let ownernya = '0@s.whatsapp.net'
             let me = m.sender
             let jawab = `*${ucapanWaktu}*
@@ -3627,8 +3773,8 @@ let alfamart = `628111500959@s.whatsapp.net`
   mentions: ments,
   headerType: 4,
   contextInfo:{externalAdReply:{
-  title: 'Bot WhatsApp',
-  body: 'Jangan Spam!', 
+  title: 'Simple Bot WhatsApp',
+  body: 'By Papah-Chan', 
   showAdAttribution: true,
   thumbnail: thumb,
   mediaType: 2,
@@ -3637,6 +3783,7 @@ let alfamart = `628111500959@s.whatsapp.net`
   }}
   }
   tio.sendMessage(m.chat, buttonMessage, {quoted: fkontak})
+  tio.sendMessage(m.chat, { audio: tio_dev, mimetype: 'audio/mp4', ptt: true }, { quoted: fkontak })
   }
  break
             case 'simplemenu': case 'list': case 'help': {
@@ -3793,14 +3940,46 @@ rndom = `╭──❍「 *Random Menu* 」❍
 │ *»* ${prefix}katasenja
 │ *»* ${prefix}puisi
 │ *»* ${prefix}couple
-│ *»* ${prefix}anime
-│ *»* ${prefix}waifu
+│ *»* ${prefix}animeh
 │ *»* ${prefix}sound1-161
 ╰────❍`
 let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: '️Back' }, type: 1 },{ buttonId: 'allmenu', buttonText: { displayText: 'List Menu' }, type: 1 },{ buttonId: 'donasi', buttonText: { displayText: 'Donasi' }, type: 1 }]
             await tio.sendButtonText(m.chat, buttons, rndom, esce, m, {quoted: fkontak})
             }
             break
+            case 'mstickanime': {
+                rndom = `╭──❍「 *Anime Stiker* 」
+                │ *»* ${prefix}bully
+                │ *»* ${prefix}cuddle
+                │ *»* ${prefix}cry
+                │ *»* ${prefix}hug
+                │ *»* ${prefix}awoo
+                │ *»* ${prefix}kiss
+                │ *»* ${prefix}lick
+                │ *»* ${prefix}pat
+                │ *»* ${prefix}smug
+                │ *»* ${prefix}bonk
+                │ *»* ${prefix}yeet
+                │ *»* ${prefix}blush
+                │ *»* ${prefix}smile
+                │ *»* ${prefix}wave
+                │ *»* ${prefix}highfive
+                │ *»* ${prefix}handhold
+                │ *»* ${prefix}nom
+                │ *»* ${prefix}glomp
+                │ *»* ${prefix}bite
+                │ *»* ${prefix}slap
+                │ *»* ${prefix}kill
+                │ *»* ${prefix}happy
+                │ *»* ${prefix}wink
+                │ *»* ${prefix}poke
+                │ *»* ${prefix}dance
+                │ *»* ${prefix}cringe
+                ╰────❍`
+                let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: '️Back' }, type: 1 },{ buttonId: 'allmenu', buttonText: { displayText: 'List Menu' }, type: 1 },{ buttonId: 'donasi', buttonText: { displayText: 'Donasi' }, type: 1 }]
+                            await tio.sendButtonText(m.chat, buttons, rndom, esce, m, {quoted: fkontak})
+                            }
+                            break
             case 'mtextpro': {
 txtpro = `╭──❍「 *Textpro Menu* 」
 │ *»* ${prefix}3dchristmas
@@ -4050,6 +4229,11 @@ let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: 'Back' }, ty
             let me = m.sender
             let ments = [ownernya, me, ini_kangbaned]
                 anu = `*${ucapanWaktu}*\n*kak @${me.split('@')[0]}*\n*Powered : @${ini_kangbaned.split('@')[0]}*
+
+_*🇬🇧 : List of features in this bot*_.
+_*🇮🇩 : Daftar Fitur Yang Ada Di Bot Ini*_.
+_*🇯🇵 : このボットの機能のリスト*_.*
+
 ╭──❍「 *Group Menu* 」
 │ *»* ${prefix}linkgroup
 │ *»* ${prefix}ephemeral [option]
@@ -4094,6 +4278,7 @@ let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: 'Back' }, ty
 ╰────❍
 ╭──❍「 *Downloader Menu* 」
 │ *»* ${prefix}tiktok [url]
+│ *»* ${prefix}mediafire [url]
 │ *»* ${prefix}instagram [url]
 │ *»* ${prefix}instagramreel [url]
 │ *»* ${prefix}instagramstory [url]
@@ -4143,6 +4328,34 @@ let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: 'Back' }, ty
 │ *»* ${prefix}anime
 │ *»* ${prefix}waifu
 │ *»* ${prefix}sound1-161
+╰────❍
+╭──❍「 *Anime Stiker* 」
+│ *»* ${prefix}bully
+│ *»* ${prefix}cuddle
+│ *»* ${prefix}cry
+│ *»* ${prefix}hug
+│ *»* ${prefix}awoo
+│ *»* ${prefix}kiss
+│ *»* ${prefix}lick
+│ *»* ${prefix}pat
+│ *»* ${prefix}smug
+│ *»* ${prefix}bonk
+│ *»* ${prefix}yeet
+│ *»* ${prefix}blush
+│ *»* ${prefix}smile
+│ *»* ${prefix}wave
+│ *»* ${prefix}highfive
+│ *»* ${prefix}handhold
+│ *»* ${prefix}nom
+│ *»* ${prefix}glomp
+│ *»* ${prefix}bite
+│ *»* ${prefix}slap
+│ *»* ${prefix}kill
+│ *»* ${prefix}happy
+│ *»* ${prefix}wink
+│ *»* ${prefix}poke
+│ *»* ${prefix}dance
+│ *»* ${prefix}cringe
 ╰────❍
 ╭──❍「 *Textpro Menu* 」
 │ *»* ${prefix}3dchristmas
@@ -4321,10 +4534,14 @@ let buttons = [{ buttonId: 'simplemenu', buttonText: { displayText: 'Back' }, ty
 │ *»* ${prefix}unblock @user
 │ *»* ${prefix}bcgroup [text]
 │ *»* ${prefix}bcall [text]
+│ *»* ${prefix}bcaudio
+│ *»* ${prefix}bcvideo
+│ *»* ${prefix}bcimage
 │ *»* ${prefix}setppbot [image]
 │ *»* ${prefix}setexif
 │ *»* ${prefix}setmenu [option]
 │ *»* ${prefix}setowner
+│ *»* ${prefix}setbio
 │ *»* ${prefix}public
 │ *»* ${prefix}getcase
 │ *»* ${prefix}addprem/delprem
